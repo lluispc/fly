@@ -1,60 +1,60 @@
 # Perpetual Filesystem Adapter
 
-Este es un adaptador personalizado para Flysystem que implementa la interfaz `FilesystemAdapter`. 
+This is a custom adapter for Flysystem that implements the `FilesystemAdapter` interface.
 
-## Requisitos
+## Requirements
 
-- PHP 8.0 o superior
-- Extensión fileinfo (para detección de tipos MIME)
+- PHP 8.0 or higher
+- Fileinfo extension (for MIME type detection)
 - [league/flysystem](https://flysystem.thephpleague.com/) v3.x
 
-## Instalación
+## Installation
 
 ```bash
 composer require league/flysystem
 ```
 
-## Uso
+## Usage
 
 ```php
 use App\Adapter\Perpetual\PerpetualAdapter;
 use League\Flysystem\Filesystem;
 
-// Ruta donde se almacenarán los archivos
-$storagePath = '/ruta/al/directorio/de/almacenamiento';
+// Path where files will be stored
+$storagePath = '/path/to/storage/directory';
 
-// Crear una instancia del adaptador
+// Create an instance of the adapter
 $adapter = new PerpetualAdapter($storagePath);
 
-// Crear el sistema de archivos con nuestro adaptador
+// Create the filesystem with our adapter
 $filesystem = new Filesystem($adapter);
 
-// Ahora puedes usar cualquier operación disponible en Flysystem
-$filesystem->write('archivo.txt', 'Contenido del archivo');
-$contenido = $filesystem->read('archivo.txt');
+// Now you can use any operation available in Flysystem
+$filesystem->write('file.txt', 'File content');
+$content = $filesystem->read('file.txt');
 ```
 
-## Características
+## Features
 
-El adaptador Perpetual soporta todas las operaciones básicas de archivos:
+The Perpetual adapter supports all basic file operations:
 
-- Lectura y escritura de archivos
-- Manejo de streams para archivos grandes
-- Creación, eliminación y listado de directorios
-- Copiar y mover archivos
-- Gestión de metadatos (tamaño, fecha de modificación, tipo MIME)
-- Control de visibilidad (público/privado)
+- Reading and writing files
+- Stream handling for large files
+- Creating, deleting, and listing directories
+- Copying and moving files
+- Metadata management (size, modification date, MIME type)
+- Visibility control (public/private)
 
-## Ejemplo de uso
+## Usage Example
 
-Puedes encontrar un ejemplo completo de uso en el archivo `src/example.php`.
+You can find a complete usage example in the `src/example.php` file.
 
-Para ejecutar el ejemplo:
+To run the example:
 
 ```bash
 php src/example.php
 ```
 
-## Licencia
+## License
 
 MIT 
